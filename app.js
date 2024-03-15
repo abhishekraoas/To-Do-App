@@ -15,15 +15,26 @@ const addTask = () => {
     ul.appendChild(item);
     item.appendChild(deleteBtn);
     input.value = "";
-  }
 
   let deleteButton = document.querySelectorAll(".delete");
 
-  for (delBtn of deleteButton) {
-    delBtn.addEventListener("click", () => {
-      console.log("Element Deleted");
-    });
-  }
+  ul.addEventListener("click", (event)=>{
+    if(event.target.nodeName=="BUTTON"){
+        let listItem = event.target.parentElement;
+        listItem.remove();
+        console.log("deleted");
+    }
+  })
+
+}
+
+//   for (delBtn of deleteButton) {
+//     delBtn.addEventListener("click", () => {
+//       let parent = this.parentElement; 
+//     //   console.log("Element Deleted");
+//       parent.remove(); 
+//     });
+//   }
 };
 
 btn.addEventListener("click", addTask);
